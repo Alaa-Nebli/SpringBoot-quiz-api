@@ -33,27 +33,27 @@ public class Student {
     @Column(
             name = "name",
             nullable = false,
-            columnDefinition = "TEXT",
+            columnDefinition = "TEXT"
     )
     private  String name ;
 
     @Column(
             name = "email",
             nullable = false,
-            columnDefinition = "TEXT",
+            columnDefinition = "TEXT"
     )
     private  String email ;
 
     @Column(
             name = "date",
             nullable = false,
-            columnDefinition = "DATE",
+            columnDefinition = "DATE"
     )
     private LocalDate date ;
 
     @Column(
             name = "age",
-            nullable = false,
+            nullable = false
     )
     private int age ;
 
