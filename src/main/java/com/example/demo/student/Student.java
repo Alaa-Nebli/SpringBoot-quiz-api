@@ -21,7 +21,7 @@ public class Student {
 
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "Strudent_seq"
+            generator = "Student_seq"
     )
 
     @Column(
@@ -43,40 +43,49 @@ public class Student {
             columnDefinition = "TEXT"
     )
     private  String email ;
-
-    @Column(
-            name = "date",
-            nullable = false,
-            columnDefinition = "DATE"
-    )
-    private LocalDate date ;
-
+    
     @Column(
             name = "age",
             nullable = false
     )
     private int age ;
-
-    public Student(Long _id, String name, String email, LocalDate date, int age) {
+    
+    @Column(
+            name= "password",
+            nullable = false,
+            columnDefinition= "Text"
+    )
+    private  String password ; 
+    
+    
+    public Student(Long _id, String name, String email,String password, int age) {
         this._id = _id;
         this.name = name;
         this.email = email;
-        this.date = date;
+        this.password = password ;
         this.age = age;
+        
     }
 
     public Student(String name, String email, LocalDate date, int age) {
         this.name = name;
         this.email = email;
-        this.date = date;
+        
         this.age = age;
     }
 
     public Student() {
         name="user" ;
         email="user@user.com" ;
-        date= LocalDate.parse("1998-06-18");
         age= 23 ;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long get_id() {
@@ -103,14 +112,6 @@ public class Student {
         this.email = email;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public int getAge() {
         return age;
     }
@@ -125,7 +126,6 @@ public class Student {
                 "_id=" + _id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", date=" + date +
                 ", age=" + age +
                 '}';
     }
